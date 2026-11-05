@@ -1,0 +1,12 @@
+
+{
+  "name": "ALFRED - Personal Command Center",
+  "short_name": "ALFRED",
+  "description": "Your personal command center",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#090B0E",
+  "theme_color": "#090B0E"
+}
