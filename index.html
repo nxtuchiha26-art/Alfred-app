@@ -345,7 +345,15 @@
   ALFRED
 </button>
     <script  src="./script.js"></script>
-
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./service-worker.js")
+      .then(() => console.log("ALFRED offline system ready"))
+      .catch(error => console.error("ALFRED offline error:", error));
+  });
+}
+</script>
   </body>
   
 </html>
