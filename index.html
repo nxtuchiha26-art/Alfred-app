@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Alfred backup</title>
+    
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#090B0E">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <div class="alfred-app">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-emblem">♜</div>
+      <div class="brand-name">ALFRED</div>
+      <div class="brand-subtitle">PERSONAL INTELLIGENCE SYSTEM</div>
+      <div class="brand-motto">Plan · Execute · Evolve</div>
+    </div>
+
+    <nav class="navigation">
+      <button class="nav-item active" data-page="home">⌂ <span>Command Centre</span></button>
+      <div class="nav-label">DEPARTMENTS</div>
+      <button class="nav-item" data-page="academics">▤ <span>Academics</span></button>
+      <button class="nav-item" data-page="fitness">♧ <span>Fitness & Performance</span></button>
+      <button class="nav-item" data-page="nutrition">◉ <span>Nutrition & Wellness</span></button>
+      <button class="nav-item" data-page="business">⌁ <span>Business & Enterprise</span></button>
+      <button class="nav-item" data-page="operations">▦ <span>Daily Operations</span></button>
+      <button class="nav-item" data-page="personal">♙ <span>Personal Command</span></button>
+      <button class="nav-item" data-page="skills">◇ <span>Skill Development</span></button>
+      <button class="nav-item" data-page="finance">▤ <span>Finance & Assets</span></button>
+      <button class="nav-item" data-page="knowledge">▥ <span>Knowledge Vault</span></button>
+      <button class="nav-item" data-page="missions">◎ <span>Mission Control</span></button>
+      <button class="nav-item" data-page="lifestyle">♧ <span>Lifestyle & Wardrobe</span></button>
+    </nav>
+
+    <div class="sidebar-quote">
+      DISCIPLINE<br>
+      BUILDS<br>
+      FREEDOM.
+      <span>— ALFRED</span>
+    </div>
+
+    <div class="sidebar-footer">PERSONAL COMMANDER</div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main-content">
+
+    <!-- TOP HEADER -->
+    <header class="topbar">
+      <div class="welcome">
+        <div class="topbar-label">PERSONAL COMMAND SYSTEM</div>
+        <h2 id="greeting">Good evening, Commander.</h2>
+        <p>A clear mind. A defined objective. One mission at a time.</p>
+      </div>
+
+      <div class="topbar-status">
+        <span id="current-date">DATE</span>
+        <span id="current-time">TIME</span>
+        <span class="online-status"><i></i> SYSTEM ONLINE</span>
+        <button class="settings-button" data-tool="settings">⚙</button>
+      </div>
+    </header>
+
+    <!-- COMMAND CENTRE -->
+    <section class="page active" id="page-home">
+
+      <!-- CINEMATIC HERO -->
+      <section class="hero">
+        <div class="hero-content">
+          <span class="hero-label">// MISSION BRIEFING</span>
+          <h1>PLAN. EXECUTE.<br>ACHIEVE.</h1>
+          <blockquote>
+            "Discipline is the bridge between<br>
+            your goals and your reality."
+          </blockquote>
+          <span class="hero-credit">— ALFRED</span>
+        </div>
+        <div class="hero-side-quote">
+          THE BEST<br>VERSION<br>OF YOU<br>IS A<br>CHOICE.
+        </div>
+      </section>
+
+      <!-- PRIMARY DIRECTIVE -->
+      <section class="panel directive">
+        <div class="directive-icon">◎</div>
+        <div class="directive-content">
+          <div class="panel-heading">◆ PRIMARY DIRECTIVE</div>
+          <h2>Make today count.</h2>
+          <p>Select your next priority and give it your full attention.</p>
+        </div>
+        <span class="directive-arrow">›</span>
+      </section>
+
+      <!-- STATISTICS -->
+      <section class="stats-grid">
+
+        <div class="panel stat-card">
+          <div class="stat-icon">◎</div>
+          <div>
+            <strong id="active-count">00</strong>
+            <span>ACTIVE MISSIONS</span>
+            <small>Keep going.</small>
+          </div>
+        </div>
+
+        <div class="panel stat-card">
+          <div class="stat-icon">✓</div>
+          <div>
+            <strong id="completion-rate">0%</strong>
+            <span>COMPLETION</span>
+            <small>Progress matters.</small>
+          </div>
+        </div>
+
+        <div class="panel stat-card">
+          <div class="stat-icon">▥</div>
+          <div>
+            <strong id="task-count">0</strong>
+            <span>TODAY'S TASKS</span>
+            <small>Stay consistent.</small>
+          </div>
+        </div>
+
+        <div class="panel stat-card">
+          <div class="stat-icon">ϟ</div>
+          <div>
+            <strong id="focus-status">0%</strong>
+            <span>FOCUS</span>
+            <small>No distractions.</small>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- BRIEFING AND PLAN -->
+      <section class="dashboard-grid">
+
+        <div class="panel briefing-panel">
+          <div class="panel-topline">
+            <span>// TODAY'S BRIEFING</span>
+            <button data-tool="planner">VIEW PLAN →</button>
+          </div>
+
+          <div class="briefing-message">
+            <h3>› Small steps, taken consistently,<br> create massive results.</h3>
+            <p>Focus. Discipline. Progress.</p>
+          </div>
+
+          <div class="briefing-footer">
+            <span>◷ <b id="briefing-date">TODAY</b></span>
+            <span>▦ <b id="briefing-tasks">0 Tasks</b></span>
+            <span>◎ <b id="briefing-missions">0 Missions</b></span>
+          </div>
+        </div>
+
+        <div class="panel plan-panel">
+          <div class="panel-topline">
+            <span>// TODAY'S PLAN</span>
+            <button data-tool="planner">VIEW ALL →</button>
+          </div>
+          <div id="dashboard-tasks">
+            <p class="empty-state">Your scheduled tasks will appear here.</p>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- QUICK ACCESS AND SYSTEM STATUS -->
+      <section class="bottom-grid">
+
+        <div class="panel quick-access">
+          <div class="panel-heading">ϟ QUICK ACCESS</div>
+
+          <div class="quick-grid">
+            <button data-tool="focus"><span>◷</span>Focus Timer</button>
+            <button data-tool="planner"><span>▦</span>Daily Planner</button>
+            <button data-tool="notes"><span>▤</span>Notes</button>
+            <button data-open="missions"><span>☷</span>Tasks</button>
+            <button data-tool="goals"><span>◎</span>Goals</button>
+            <button data-tool="settings"><span>⚙</span>Settings</button>
+          </div>
+
+          <div class="panel-footer-text">
+            BETTER HABITS → BIGGER RESULTS
+          </div>
+        </div>
+
+        <div class="panel system-panel">
+          <div class="panel-topline">
+            <span>// SYSTEM STATUS</span>
+            <span class="online-status"><i></i> ONLINE</span>
+          </div>
+
+          <div class="system-bars" id="system-overview">
+            <div class="system-row">
+              <span>Fitness & Performance</span>
+              <div class="progress-track"><i style="width:0%"></i></div>
+              <b>0%</b>
+            </div>
+            <div class="system-row">
+              <span>Academics</span>
+              <div class="progress-track"><i style="width:0%"></i></div>
+              <b>0%</b>
+            </div>
+            <div class="system-row">
+              <span>Nutrition & Wellness</span>
+              <div class="progress-track"><i style="width:0%"></i></div>
+              <b>0%</b>
+            </div>
+            <div class="system-row">
+              <span>Finance & Assets</span>
+              <div class="progress-track"><i style="width:0%"></i></div>
+              <b>0%</b>
+            </div>
+            <div class="system-row">
+              <span>Overall Progress</span>
+              <div class="progress-track"><i style="width:0%"></i></div>
+              <b>0%</b>
+            </div>
+          </div>
+
+          <div class="panel-footer-text">STAY FOCUSED. STAY DANGEROUS.</div>
+        </div>
+
+      </section>
+
+      <!-- ALL 11 DEPARTMENTS -->
+      <section class="departments-section">
+        <div class="section-heading">
+          <span>// DEPARTMENT DIRECTORY</span>
+          <span>11 DIVISIONS</span>
+        </div>
+
+        <div class="department-grid">
+
+          <button class="department-card" data-home-department="academics">
+            <span class="department-icon">A</span>
+            <span><b>Academics</b><small>Study and learning</small></span>
+            <i>›</i>
+          </button>
+
+          <button class="department-card" data-home-department="fitness">
+            <span class="department-icon">F</span>
+            <span><b>Fitness & Performance</b><small>Training and recovery</small></span>
+            <i>›</i>
+          </button>
+
+          <button class="department-card" data-home-department="nutrition">
+            <span class="department-icon">N</span>
+            <span><b>Nutrition & Wellness</b><small>Health and wellbeing</small></span>
+            <i>›</i>
+          </button>
+
+          <button class="department-card" data-home-department="business">
+            <span class="department-icon">B</span>
+            <span><b>Business & Enterprise</b><small>Ideas and operations</small></span>
+            <i>›</i>
+          </button>
+
+          <button class="department-card" data-home-department="operations">
+            <span class="department-icon">D</span>
+            <span><b>Daily Operations</b><small>Tasks and routines</small></span>
+            <i>›</i>
+          </button>
+
+          <button class="department-card" data-home-department="personal">
+            <span class="department-icon">P</span>
+            <span><b>Personal Command</b><small>Goals and standards</small></span>
+            <i>›</i>
+          </button>
+
+          <button class="department-card" data-home-department="skills">
+            <span class="department-icon">S</span>
+            <span><b>Skill Development</b><small>Practice and projects</small></span>
+            <i>›</i>
+          </button>
+
+          <button class="department-card" data-home-department="finance">
+            <span class="department-icon">₹</span>
+            <span><b>Finance & Assets</b><small>Money and assets</small></span>
+            <i>›</i>
+          </button>
+
+          <button class="department-card" data-home-department="knowledge">
+            <span class="department-icon">K</span>
+            <span><b>Knowledge Vault</b><small>Research and resources</small></span>
+            <i>›</i>
+          </button>
+
+          <button class="department-card" data-home-department="missions">
+            <span class="department-icon">M</span>
+            <span><b>Mission Control</b><small>Objectives and progress</small></span>
+            <i>›</i>
+          </button>
+
+          <button class="department-card" data-home-department="lifestyle">
+            <span class="department-icon">L</span>
+            <span><b>Lifestyle & Wardrobe</b><small>Style and collection</small></span>
+            <i>›</i>
+          </button>
+
+        </div>
+      </section>
+
+      <footer class="home-footer">
+        <span>ALFRED</span>
+        DISCIPLINE · STRATEGY · EXECUTION
+        <span>PERSONAL COMMANDER</span>
+      </footer>
+
+    </section>
+
+    <!-- DEPARTMENT WORKSPACE -->
+    <section class="page" id="page-department">
+      <header class="workspace-header">
+        <div class="topbar-label">DEPARTMENT WORKSPACE</div>
+        <h1 id="department-title">Department</h1>
+        <p id="department-description"></p>
+      </header>
+      <div id="department-content"></div>
+    </section>
+
+    <!-- TOOL WORKSPACE -->
+    <section class="page" id="page-tool">
+      <header class="workspace-header">
+        <div class="topbar-label">SYSTEM TOOL</div>
+        <h1 id="tool-title">Tool</h1>
+      </header>
+      <div id="tool-content"></div>
+    </section>
+
+  </main>
+</div>
+
+<!-- CENTRAL ALFRED FLOATING LAUNCHER -->
+<button id="alfred-ai-launcher" type="button">
+  ALFRED
+</button>
+    <script  src="./script.js"></script>
+
+  </body>
+  
+</html>

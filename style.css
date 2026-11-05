@@ -1,0 +1,959 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg: #070707;
+  --surface: #101010;
+  --surface-2: #151515;
+  --surface-3: #1b1b1b;
+  --silver: #d9dce0;
+  --silver-dim: #969ba2;
+  --muted: #747980;
+  --border: rgba(210,215,222,.17);
+  --white: #f3f4f5;
+  --blue: #9ebed0;
+  --green: #52d6a0;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--bg); color-scheme: dark; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+}
+
+button, input, textarea, select { font: inherit; }
+button { cursor: pointer; }
+
+.alfred-app {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 245px minmax(0,1fr);
+  background: var(--bg);
+}
+
+/* SIDEBAR */
+
+.sidebar {
+  min-height: 100vh;
+  min-width: 0;
+  padding: 25px 15px;
+  display: flex;
+  flex-direction: column;
+  background: #090909;
+  border-right: 1px solid var(--border);
+}
+
+.brand {
+  padding: 4px 10px 23px;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+}
+
+.brand-emblem {
+  font-size: 27px;
+  color: var(--silver);
+  margin-bottom: 5px;
+}
+
+.brand-name {
+  font-family: 'Cormorant Garamond',serif;
+  font-size: 32px;
+  letter-spacing: 6px;
+  color: var(--silver);
+}
+
+.brand-subtitle {
+  font-size: 8px;
+  color: var(--silver-dim);
+  letter-spacing: 1.7px;
+  margin-top: 5px;
+}
+
+.brand-motto {
+  color: var(--muted);
+  font-size: 9px;
+  letter-spacing: 1px;
+  margin-top: 10px;
+}
+
+.navigation {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 22px;
+}
+
+.nav-label {
+  color: var(--muted);
+  font-size: 9px;
+  letter-spacing: 1.7px;
+  margin: 17px 10px 8px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  width: 100%;
+  padding: 11px 10px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--silver-dim);
+  font-size: 11px;
+  text-align: left;
+}
+
+.nav-item:hover,
+.nav-item.active {
+  background: #17191b;
+  color: var(--white);
+  border-color: var(--border);
+}
+
+.nav-item span { min-width: 0; }
+
+.sidebar-quote {
+  margin-top: auto;
+  padding: 22px 12px;
+  border-top: 1px solid var(--border);
+  color: var(--silver-dim);
+  font-family: 'Cormorant Garamond',serif;
+  font-size: 19px;
+  letter-spacing: 2px;
+  line-height: 1.4;
+}
+
+.sidebar-quote span {
+  display: block;
+  font-family: 'Inter',sans-serif;
+  font-size: 9px;
+  color: var(--muted);
+  margin-top: 9px;
+}
+
+.sidebar-footer {
+  color: var(--muted);
+  font-size: 8px;
+  letter-spacing: 1.4px;
+  padding: 10px;
+}
+
+/* MAIN CONTENT */
+
+.main-content {
+  min-width: 0;
+  padding: 27px;
+  overflow: hidden;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 23px;
+}
+
+.topbar-label {
+  font-size: 9px;
+  letter-spacing: 1.8px;
+  color: var(--muted);
+}
+
+.welcome h2 {
+  margin: 7px 0 5px;
+  font-size: 19px;
+  font-weight: 500;
+}
+
+.welcome p {
+  color: var(--silver-dim);
+  font-size: 10px;
+  margin: 0;
+}
+
+.topbar-status {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 12px;
+  color: var(--silver-dim);
+  font-size: 9px;
+}
+
+.online-status {
+  color: var(--green);
+  font-size: 9px;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+.online-status i {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+  margin-right: 5px;
+}
+
+.settings-button {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--silver);
+  padding: 7px 10px;
+  border-radius: 4px;
+}
+
+/* PAGE SYSTEM */
+
+.page { display: none; min-width: 0; }
+.page.active { display: block; }
+
+/* CINEMATIC HERO */
+
+.hero {
+  min-height: 245px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  overflow: hidden;
+  padding: 28px;
+  border: 1px solid var(--border);
+  background:
+    linear-gradient(90deg,rgba(0,0,0,.94),rgba(0,0,0,.15)),
+    linear-gradient(0deg,rgba(0,0,0,.8),transparent),
+    url('https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1500&q=80') center 48%/cover;
+}
+
+.hero-content { position: relative; z-index: 1; }
+
+.hero-label {
+  color: var(--blue);
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+.hero h1 {
+  font-family: 'Cormorant Garamond',serif;
+  font-size: clamp(34px,4vw,52px);
+  line-height: .98;
+  font-weight: 500;
+  letter-spacing: 2px;
+  margin: 16px 0;
+}
+
+.hero blockquote {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  color: #c0c2c5;
+  font-family: 'Cormorant Garamond',serif;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.hero-credit {
+  display: block;
+  color: var(--muted);
+  font-size: 8px;
+  letter-spacing: 2px;
+  margin-top: 8px;
+}
+
+.hero-side-quote {
+  color: rgba(230,233,237,.55);
+  font-family: 'Cormorant Garamond',serif;
+  font-size: 16px;
+  letter-spacing: 2px;
+  line-height: 1.6;
+  text-align: right;
+}
+
+/* PANELS */
+
+.panel {
+  min-width: 0;
+  padding: 17px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+}
+
+.panel-heading,
+.panel-topline,
+.section-heading {
+  color: var(--silver-dim);
+  font-size: 9px;
+  letter-spacing: 1.6px;
+}
+
+.panel-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.panel-topline button {
+  border: 0;
+  background: transparent;
+  color: var(--blue);
+  font-size: 9px;
+  padding: 3px;
+}
+
+/* DIRECTIVE */
+
+.directive {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 13px 0;
+  padding: 17px;
+  background: #111315;
+}
+
+.directive-icon {
+  color: var(--blue);
+  font-size: 25px;
+}
+
+.directive-content { flex: 1; min-width: 0; }
+
+.directive-content h2 {
+  margin: 7px 0 4px;
+  font-family: 'Cormorant Garamond',serif;
+  font-size: 23px;
+  font-weight: 500;
+}
+
+.directive-content p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.directive-arrow {
+  font-size: 25px;
+  color: var(--silver-dim);
+}
+
+/* STATS */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4,minmax(0,1fr));
+  gap: 10px;
+  margin: 13px 0;
+}
+
+.stat-card {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 15px;
+}
+
+.stat-icon {
+  color: var(--blue);
+  font-size: 21px;
+}
+
+.stat-card strong {
+  display: block;
+  font-size: 23px;
+  font-weight: 500;
+  color: var(--silver);
+}
+
+.stat-card span {
+  display: block;
+  color: var(--silver-dim);
+  font-size: 8px;
+  letter-spacing: .8px;
+  margin-top: 4px;
+}
+
+.stat-card small {
+  display: block;
+  color: var(--muted);
+  font-size: 9px;
+  margin-top: 6px;
+}
+
+/* BRIEFING AND PLAN */
+
+.dashboard-grid,
+.bottom-grid {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 12px;
+  margin-top: 13px;
+}
+
+.briefing-panel,
+.plan-panel {
+  min-height: 175px;
+}
+
+.briefing-message { padding: 16px 0; }
+
+.briefing-message h3 {
+  font-family: 'Cormorant Garamond',serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.35;
+  margin: 0;
+}
+
+.briefing-message p,
+.empty-state {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.briefing-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 13px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 9px;
+}
+
+.briefing-footer b { color: var(--silver-dim); }
+
+#dashboard-tasks { padding-top: 12px; }
+
+/* QUICK ACCESS */
+
+.quick-grid {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 9px;
+  margin-top: 14px;
+}
+
+.quick-grid button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  padding: 13px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: #141414;
+  color: var(--silver);
+  text-align: left;
+  font-size: 10px;
+}
+
+.quick-grid button:hover {
+  background: var(--surface-3);
+}
+
+.quick-grid button span {
+  color: var(--blue);
+  font-size: 17px;
+}
+
+.panel-footer-text {
+  padding-top: 14px;
+  margin-top: 13px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 8px;
+  letter-spacing: 1.2px;
+}
+
+/* SYSTEM STATUS */
+
+.system-bars { padding-top: 14px; }
+
+.system-row {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) 1fr 27px;
+  align-items: center;
+  gap: 9px;
+  margin: 12px 0;
+  color: var(--silver-dim);
+  font-size: 9px;
+}
+
+.progress-track {
+  height: 4px;
+  background: #252525;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-track i {
+  display: block;
+  height: 100%;
+  background: var(--blue);
+}
+
+.system-row b {
+  font-size: 9px;
+  font-weight: 400;
+  text-align: right;
+}
+
+/* DEPARTMENT DIRECTORY */
+
+.departments-section { margin-top: 25px; }
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 13px;
+}
+
+.department-grid {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 10px;
+}
+
+.department-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  width: 100%;
+  min-height: 67px;
+  padding: 12px;
+  text-align: left;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--silver);
+}
+
+.department-card:hover {
+  background: var(--surface-3);
+  border-color: rgba(210,215,222,.4);
+}
+
+.department-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 28px;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--border);
+  color: var(--blue);
+  font-family: 'Cormorant Garamond',serif;
+  font-size: 17px;
+}
+
+.department-card > span:nth-child(2) {
+  flex: 1;
+  min-width: 0;
+}
+
+.department-card b {
+  display: block;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.department-card small {
+  display: block;
+  color: var(--muted);
+  font-size: 8px;
+  margin-top: 5px;
+}
+
+.department-card > i {
+  color: var(--muted);
+  font-size: 17px;
+  font-style: normal;
+}
+
+/* FOOTER */
+
+.home-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 22px 4px;
+  margin-top: 22px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 8px;
+  letter-spacing: 1.3px;
+}
+
+.home-footer span:first-child {
+  color: var(--silver);
+  letter-spacing: 3px;
+}
+
+/* WORKSPACES */
+
+.workspace-header {
+  padding: 20px 0;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.workspace-header h1 {
+  margin: 9px 0;
+  font-family: 'Cormorant Garamond',serif;
+  font-size: 35px;
+  font-weight: 500;
+}
+
+.workspace-header p {
+  color: var(--silver-dim);
+  font-size: 11px;
+}
+
+/* CENTRAL ALFRED BUTTON */
+
+#alfred-ai-launcher {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 9998;
+  padding: 13px 21px;
+  background: #111;
+  color: var(--silver);
+  border: 1px solid rgba(210,215,222,.4);
+  border-radius: 30px;
+  letter-spacing: 2px;
+  font-size: 10px;
+  box-shadow: 0 5px 25px rgba(0,0,0,.55);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1000px) {
+  .alfred-app { grid-template-columns: 205px minmax(0,1fr); }
+  .main-content { padding: 19px; }
+  .stats-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
+
+@media(max-width:650px) {
+  .alfred-app { display: block; }
+
+  .sidebar {
+    min-height: auto;
+    padding: 12px;
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .brand { padding: 3px 8px 12px; }
+  .brand-emblem { font-size: 20px; }
+  .brand-name { font-size: 25px; }
+  .brand-motto { margin-top: 5px; }
+
+  .navigation {
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 4px;
+    margin-top: 12px;
+  }
+
+  .nav-label { grid-column: 1/-1; }
+
+  .nav-item {
+    padding: 9px 7px;
+    font-size: 9px;
+    gap: 7px;
+  }
+
+  .sidebar-quote,
+  .sidebar-footer { display: none; }
+
+  .main-content { padding: 13px; }
+
+  .topbar { align-items: flex-start; }
+  .welcome h2 { font-size: 16px; }
+  .topbar-status { gap: 7px; font-size: 8px; }
+
+  .hero { min-height: 205px; padding: 19px; }
+  .hero h1 { font-size: 34px; }
+  .hero-side-quote { font-size: 11px; }
+
+  .dashboard-grid,
+  .bottom-grid { grid-template-columns: 1fr; }
+
+  .stats-grid { gap: 7px; }
+  .stat-card { padding: 11px; gap: 8px; }
+  .stat-card strong { font-size: 20px; }
+
+  .department-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .department-card { gap: 7px; padding: 9px; }
+  .department-card b { font-size: 9px; }
+
+  .home-footer { justify-content: center; text-align: center; }
+}
+
+@media(max-width:360px) {
+  .topbar-status { max-width: 125px; }
+  .hero-side-quote { display: none; }
+  .department-card { padding: 7px; gap: 5px; }
+  .department-icon { flex-basis: 23px; width: 23px; height: 23px; }
+}
+/* ALFRED — GLOWING SILVER */
+
+button,
+.department-card,
+.quick-item,
+.card,
+.panel,
+.widget,
+.stat-card,
+.tool-card {
+  border: 1px solid #929ba9 !important;
+  box-shadow:
+    0 0 5px rgba(180, 195, 215, 0.22),
+    0 0 12px rgba(160, 175, 195, 0.12),
+    inset 0 0 5px rgba(180, 195, 215, 0.06) !important;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+button:hover,
+.department-card:hover,
+.quick-item:hover,
+.card:hover,
+.panel:hover,
+.widget:hover,
+.stat-card:hover,
+.tool-card:hover {
+  border-color: #c0cad8 !important;
+  box-shadow:
+    0 0 8px rgba(190, 205, 225, 0.35),
+    0 0 20px rgba(160, 180, 210, 0.2) !important;
+}
+/* ALFRED — COMPACT MOBILE DEPARTMENT BAR */
+
+@media (max-width: 650px) {
+
+  .alfred-app {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .sidebar {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 4px !important;
+    border-right: none !important;
+  }
+
+  .navigation {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: 4px !important;
+    width: 100% !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scrollbar-width: none;
+  }
+
+  .navigation::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-item {
+    flex: 0 0 38px !important;
+    width: 38px !important;
+    min-width: 38px !important;
+    min-height: 30px !important;
+    padding: 4px !important;
+    font-size: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .main-content {
+    width: 100% !important;
+    min-width: 0 !important;
+    padding: 10px !important;
+  }
+
+}
+@media(max-width:650px){
+.nav-item{
+flex:0 0 auto!important;
+width:auto!important;
+min-width:0!important;
+min-height:28px!important;
+padding:5px 8px!important;
+font-size:9px!important;
+white-space:nowrap!important;
+}
+}
+/* ALFRED — APP SHELL */
+
+html, body {
+  min-height: 100%;
+  background: var(--bg);
+  overscroll-behavior-y: none;
+}
+
+body {
+  min-height: 100dvh;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.alfred-app {
+  min-height: 100dvh;
+  width: 100%;
+}
+
+.sidebar {
+  align-self: start;
+  scrollbar-width: thin;
+  scrollbar-color: #42464d transparent;
+}
+
+.main-content {
+  min-height: 100dvh;
+}
+
+/* App-like navigation feedback */
+.nav-item {
+  transition: background .2s ease,
+              color .2s ease,
+              border-color .2s ease;
+}
+
+.nav-item.active {
+  border-left: 2px solid var(--silver);
+  background: #17191b;
+  color: var(--white);
+}
+
+/* Touch feedback */
+button:active {
+  transform: scale(.985);
+}
+
+/* Clean, controlled surfaces */
+.panel,
+.department-card,
+.stat-card {
+  box-shadow: none;
+}
+
+/* ALFRED — SLOW DEPARTMENT ENTRANCE */
+
+.main-content {
+  animation: alfredEnter .85s ease-out both;
+}
+
+@keyframes alfredEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(18px);
+    filter: blur(3px);
+  }
+
+  65% {
+    opacity: .8;
+    filter: blur(1px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.nav-item {
+  transition: all .3s ease;
+}
+
+.nav-item:active {
+  transform: scale(.96);
+}
+
+/* ALFRED — MOBILE APP FOUNDATION */
+
+html {
+  min-height: 100%;
+  background: #090B0E;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin: 0;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior-y: contain;
+}
+
+button,
+.nav-item {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* ALFRED — NATIVE NAVIGATION FEEL */
+
+.navigation {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.navigation::-webkit-scrollbar {
+  display: none;
+}
+
+.nav-item {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+
+  transition:
+    background .22s ease,
+    color .22s ease,
+    transform .18s ease,
+    border-color .22s ease;
+}
+
+.nav-item:active {
+  transform: scale(.96);
+  opacity: .82;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  transition: transform .18s ease;
+}
+
+button:active {
+  transform: scale(.97);
+}
